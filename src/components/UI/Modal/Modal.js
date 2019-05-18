@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Auxiliary from '../../../hoc/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
 
@@ -18,5 +19,14 @@ const modal = props => (
     </div>
   </Auxiliary>
 );
+
+modal.propTypes = {
+  show: PropTypes.bool,
+  modalClosed: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default modal;

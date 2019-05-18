@@ -61,7 +61,7 @@ export default class BurgerBuilder extends Component {
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
       .map(ingredientKey => ingredients[ingredientKey])
-      .reduce((sum, current) => sum + current, 0);
+      .reduce((total, current) => total + current, 0);
 
     this.setState({ purchaseable: sum > 0 });
   }

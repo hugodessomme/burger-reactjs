@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
@@ -26,6 +27,11 @@ const sideDrawer = props => {
       </div>
     </Auxiliary>
   );
+};
+
+sideDrawer.propTypes = {
+  open: PropTypes.bool,
+  closed: PropTypes.func,
 };
 
 export default sideDrawer;
