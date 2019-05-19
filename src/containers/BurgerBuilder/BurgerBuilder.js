@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
@@ -14,7 +15,7 @@ const INGREDIENT_PRICES = {
   bacon: 0.7,
 };
 
-export default class BurgerBuilder extends Component {
+class BurgerBuilder extends Component {
   state = {
     ingredients: {
       salad: 0,
@@ -96,7 +97,7 @@ export default class BurgerBuilder extends Component {
     };
 
     axios
-      .post('/orders.json', order)
+      .post('/orders', order)
       .then(response => {
         this.setState({ loading: false, purchasing: false });
       })
@@ -148,3 +149,5 @@ export default class BurgerBuilder extends Component {
     );
   }
 }
+
+export default withErrorHandler(BurgerBuilder, axios);
